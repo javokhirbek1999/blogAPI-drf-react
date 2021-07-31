@@ -22,7 +22,7 @@ class UserRegister(APIView):
 
 class BlacklistToken(APIView):
 
-    permission_classes = [AllowAny]
+    permission_classes = [permissions.AllowAny]
 
     def post(self, request):
         try:
