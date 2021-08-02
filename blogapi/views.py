@@ -16,7 +16,7 @@ from .permissions import IsAuthorOrReadOnly
 
 
 class PostList(viewsets.ModelViewSet):
-    permission_classes = (IsAuthorOrReadOnly,)
+    permission_classes = [permissions.IsAuthenticated]
     serializer_class = PostSerializer
 
     def get_object(self, queryset=None, **kwargs):
@@ -27,7 +27,7 @@ class PostList(viewsets.ModelViewSet):
         return Post.objects.all()
 
 class PostDetailFilter(generics.ListAPIView):
-    permission_classes = [permissions.AllowAny]
+    permission_classes = [permissions.IsAuthenticated]
     queryset = Post.objects.all()
     serializer_class = PostSerializer
     filter_backends = [filters.SearchFilter]
