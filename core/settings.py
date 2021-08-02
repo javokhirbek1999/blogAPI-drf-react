@@ -51,6 +51,9 @@ INSTALLED_APPS = [
     'oauth2_provider',
     'social_django',
     'drf_social_oauth2',
+
+    'ckeditor',
+    'ckeditor_uploader',
 ]
 
 MIDDLEWARE = [
@@ -130,6 +133,7 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
 ]
 
+CKEDITOR_UPLOAD_PATH = "uploads/"
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/

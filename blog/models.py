@@ -2,6 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth import get_user_model
 from django.utils.translation import gettext_lazy as _
+from ckeditor.fields import RichTextField
 
 def upload_to(instance, filename):
     return 'posts/{filename}'.format(filename=filename)
@@ -26,7 +27,7 @@ class Post(models.Model):
     category = models.ForeignKey(Category, on_delete=models.PROTECT, default=1)
     title = models.CharField(max_length=200)
     image = models.ImageField(_('Image'), upload_to=upload_to, default='posts/default.jpg')
-    content = models.TextField()
+    content = RichTextField()
     slug = models.SlugField(max_length=200, unique_for_date='published')
     published = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, default=1)
