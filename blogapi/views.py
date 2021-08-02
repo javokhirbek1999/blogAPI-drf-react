@@ -33,11 +33,6 @@ class PostDetailFilter(generics.ListAPIView):
     filter_backends = [filters.SearchFilter]
     search_fields = ['^slug']
 
-# class CreatePost(generics.CreateAPIView):
-#     permission_classes = [permissions.IsAuthenticated]
-#     queryset = Post.objects.all()
-#     serializer_class = PostSerializer
-
 class AdminPostDetail(generics.RetrieveAPIView):
     permission_classes = [permissions.IsAuthenticated]
     queryset = Post.objects.all()
